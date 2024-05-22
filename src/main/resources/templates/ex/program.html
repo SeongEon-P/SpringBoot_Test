@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  xmlns:th="http://www.thymeleaf.org"
+	  layout:decorate="~{layout/layout1.html}">
+<div id="container"  layout:fragment="content">
+		<!-- location_area -->
+		<div class="location_area package">
+			<div class="box_inner">
+				<h2 class="tit_page">TOURIST <span class="in">in</span> TOUR</h2>
+				<p class="location">상품투어 <span class="path">/</span> 프로그램 소개</p>
+				<ul class="page_menu clear">
+					<li><a href="javascript:;" class="on">프로그램 소개</a></li>
+					<li><a href="javascript:;">여행 자료</a></li>
+				</ul>
+			</div>
+		</div>	
+		<!-- //location_area -->
+
+		<!-- bodytext_area -->
+		<div class="bodytext_area place_area box_inner">
+			<ul class="program_list clear">
+				<li th:each="program:${programList}">
+					<img class="img_place" th:src="@{'/img/'+${program.img}}" th:alt="${program.title}" />
+					<h3>[[${program.title}]]</h3>
+					<p class="subttl">[[${program.schedule}]]</p>
+					<div class="program_content">
+						<p>[[${program.text}]] <span class="subtxt">${program.subtext}</span></p>
+					</div>
+					<p class="btn_more"><a href="javascript:;">더보기</a></p>
+				</li>
+			</ul>
+		</div>
+		<!-- //bodytext_area -->
+
+	</div>
+	<!-- //container -->
+
+</html>
